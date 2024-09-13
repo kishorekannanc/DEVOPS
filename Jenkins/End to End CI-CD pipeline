@@ -1,0 +1,46 @@
+This is an end to end CI/CD pipeline to install apache server using Jenkins - CI/CD
+
+Step 1 - Run an EC2 instance VM (Jenkins) with jenkins installed
+Step 2 - Run another EC2 instance VM (Remote Server)
+
+Step 3 - Install Jenkins on Jenkins Server
+
+Step 4 - Install maven on Jenkins Server - "sudo apt-get install maven"
+
+Step 5 - Install git on Jenkins Server - "sudo apt-get install git -y"
+
+Step 6 - Generate ssh on Jenkins Server - "ssh-keygen -t rsa -b 4096"
+
+Step 7 - Login to remote Server 
+
+Step 8 - Set Password for Ubuntu "sudo passwd ubuntu" I set password as p
+
+Step 9 - Go to Jenkins Server
+
+Step 10 - Go to .ssh folder "cd .ssh". 
+
+Step 11 - Copy pub key of ssh "sudo cat id_rsa.pub"
+
+Step 12 - Go to Remote Server
+
+Step 13 - Go to .ssh folder "cd .ssh" . Open authorized key using vi editor "vi authorized_keys". 
+
+Step 14 - Copy the keys without deleting the previous (Go to lastline press enter and copy the key)
+
+Step 15 - Check the connection. Go to Jenkins Server - "ssh -i id_rsa ubuntu@100.25.130.59// Ip address of remote server"
+
+Step 16 - You can exit the machine and come back to jenkins server. (Type "exit")
+
+Step 17 - Go to Jenkins > Manage Jenkins > Plugins.
+
+Step 18 - Check for plugins and Install following plugins "Pipeline: Stage View, SSH Version, SSH server, Publish Over SSH, SSH Agent, SSH Pipeline Steps"
+
+Step 19 - Create a pipeline job .
+
+Step 20 - Go to Manage Jenkins > Credentials > Click on Global > Click on Add Credentials .
+
+Step 21 - In new Credentials. Change kind to "ssh username with key".
+
+Step 22 - Give Id as "ssh", username as "ubuntu" and secret as the pem key in for ec2 machine which is there in our local as secret and save.
+        
+
